@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+<link href="/static/css/H-ui.css" rel="stylesheet" type="text/css" />
+
+{% block body %}
+
+
+<!-- 按钮触发模态框 -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"><i class="icon-plus"></i>新加</button>
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+   aria-labelledby="myModalLabel" aria-hidden="true">
+   <div   class="modal-dialog" style="width:400px">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" 
+               data-dismiss="modal" aria-hidden="true">
+                  &times;
+            </button>
+            <h4 class="modal-title" id="myModalLabel">
+              新增加用户 
+            </h4>
+         </div>
+         <div class="modal-body">
+<form class="form-inline">
+ <table class="table table-bordered">
+   <tbody>
+    <tr>
+      <td>
+         <div class="form-group has-success has-feedback">
+            <label class="control-label">用户</label>
+         </div>
+      </td>
+      <td>  
+         <input type="text" class="form-control" id="user" > 
+      </td>
+    </tr>
+
+    <tr>
+      <td> 
+	   <div class="form-group">
+	   <label class="control-label" >密码</label>
+           </div>
+      </td>
+      <td>
+           <div class="">
+           <input type="password" class="form-control" id="passwd">
+           </div>
+      </td>
+   </tr>
+    <tr>
+      <td>
+           <label class="control-label" >密码确认</label>
+      </td>                                                                                                         
+      <td>                                                                                                          
+           <input type="password" class="form-control" id="passwd2" >                   
+       <div class="hide" > <blockquote>两次密码不一致</blockquote> </div>
+      </td>
+   </tr>
+    <tr>
+      <td>
+         <div class="form-group has-success has-feedback">
+            <label class="control-label" >角色</label>
+         </div>
+      </td>
+      <td>
+	      <select id="sele" class="form-control">
+         	<option>管理员</option>
+         	<option>用户</option>
+         	<option>运维</option>
+         	<option>研发</option>
+         	<option>厂家</option>
+              </select>
+      </td>
+    </tr>
+    <tr>
+      <td>
+         <div class="form-group has-success has-feedback">
+            <label class="control-label" >邮箱</label>
+         </div>
+      </td>
+      <td>
+         <input type="text" class="form-control" id="email">
+      </td>
+    </tr>
+    <tr>
+      <td>
+         <div class="form-group has-success has-feedback">
+            <label class="control-label" >手机</label>
+         </div>
+      </td>
+      <td>
+         <input type="text" class="form-control" id="tel">
+      </td>
+    </tr>
+
+
+  </tbody>
+ </table>
+</form>
+
+         </div>
+         <div class="modal-footer">
+	    <input id="setting_btn2" type="button" class="btn btn-success" value="提交">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+         </div>
+      </div><!-- /.modal-content -->
+</div><!-- /.modal -->
+</div>
+
+
+<div class="panel panel-info">
+   <div class="panel-heading">
+   <p class="panel-title text-danger text-center" ><strong>系统用户</strong></p>
+   </div>
+   <div class="panel-body">
+
+
+<table class="table table-condensed  table-bordered table-hover">
+   <thead>
+      <tr>
+	 <th><span class="label label-danger">序号</span></th>
+         <th><span class="label label-danger">用户</span></th>
+         <th><span class="label label-danger">邮箱</span></th>
+         <th><span class="label label-danger">手机</span></th>
+         <th><span class="label label-danger">上次登录时间</span></th>
+	 <th class=""><span class="label label-danger">修改</span></th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr class="success" >
+         <td>1</td>
+         <td>Tanmay</td>
+         <td>Bangalore</td>
+         <td>Bangalore</td>
+         <td>560001</td>
+	  <td class="">
+              <a href="user.html"><i class="icon-pencil"></i></a>
+              <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
+          </td> 
+      </tr>
+      <tr class="success">
+         <td>2</td>
+         <td>Sachin</td>
+         <td>Mumbai</td>
+         <td>Mumbai</td>
+         <td>400003</td>
+          <td class="">
+              <a href="user.html"><i class="icon-pencil"></i></a>
+              <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
+          </td>
+      </tr>
+      <tr class="success" >
+         <td>3</td>
+         <td>Uma</td>
+         <td>Pune</td>
+         <td>Pune</td>
+         <td>411027</td>
+          <td class="">
+              <a href="user.html"><i class="icon-pencil"></i></a>
+              <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
+          </td>
+      </tr>
+   </tbody>
+</table>
+   </div>
+</div>
+
+
+
+<ul class="pagination   pagination-right pagination-lg " >
+  <li><a href="#">&laquo;</a></li>
+  <li><a href="#">1</a></li>
+  <li><a href="#">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">5</a></li>
+  <li><a href="#">&raquo;</a></li>
+</ul>
+
+
+                    
+
+    
+
+
+{% end %}
+
+
+
+

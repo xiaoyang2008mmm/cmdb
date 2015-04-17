@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+<link href="/static/css/H-ui.css" rel="stylesheet" type="text/css" />
+
+{% block body %}
+
+<div>
+<a href="/setting/" class="btn btn-success  btn-lg">机房信息设置</a>
+<a href="/setting/" class="btn btn-primary  btn-lg">机房信息设置</a>
+<a href="/setting/" class="btn btn-info  btn-lg">机房信息设置</a>
+<a href="/setting/" class="btn btn-warning  btn-lg">机房信息设置</a>
+<a href="/setting/" class="btn btn-danger  btn-lg">机房信息设置</a>
+</div>
+
+{% for x in new %}
+    <div class="container-fluid">        
+      <div class="panel panel-primary">
+   		<div class="panel-heading">
+      			<h3 class="panel-title">机房</h3>
+   		</div>
+         <div class="panel panel-success">
+<div class="panel-heading"><span class="label label-warning">机房名称</span> <strong> {{(x["name"]).encode("utf-8")}}</strong></div>
+<div class="panel-heading"><span class="label label-primary">机房位置</span> <strong>{{(x["weizhi"]).encode("utf-8")}}</strong></div>
+<div class="panel-heading"><span class="label label-success">机房联系方式</span><strong>{{(x["tel"]).encode("utf-8")}}</strong></div>
+<div class="panel-heading"><span class="label label-info">机房客服人员</span>  <strong>{{(x["kefu"]).encode("utf-8")}}</strong></div>
+<div class="panel-heading"><span class="label label-danger">机房机柜位置</span><strong>{{(x["jigui"]).encode("utf-8")}}</strong></div>
+         </div>
+      </div>
+     </div>
+
+{% end %}
+
+
+{% end %}
+
+
+
+

@@ -1,0 +1,10 @@
+#gotop{
+    display:none;
+    width:55px;
+    height:55px;
+    position:fixed;
+    right:50px;
+    bottom:50px;
+    background:url(/static/h-ui/images/top.png) no-repeat -70px 0px;    
+}
+

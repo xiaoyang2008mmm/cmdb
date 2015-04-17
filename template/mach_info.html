@@ -1,0 +1,42 @@
+﻿{% extends "base.html" %}
+<link href="/static/css/H-ui.css" rel="stylesheet" type="text/css" />
+{% block body %}
+<div>
+	<table class="table table-bg table-bordered table-striped  table-hover table-condensed">
+	<thead>
+                <tr>
+                  <th>ID</th>
+                  <th>内网Ip</th>
+                  <th>主机名</th>
+                  <th>内存</th>
+                  <th>CPU</th>
+                  <th>硬盘</th>
+		  <th>网卡数</th>
+		  <th>操作系统</th>
+                  <th>机器型号</th>
+		  <th>序列号</th>
+		  <th>时间</th>
+                </tr>
+	
+	</thead>
+
+	{% for x in  results %}
+	<tbody>
+	<tr style="font-size: 14px;">
+                  <td>{{ x[0] }}</td>
+                  <td>{{ x[1] }}</td>
+                  <td>{{ x[2] }}</td>
+                  <td>{{ x[3] }}</td>
+                  <td>{{ x[4] }}</td>
+                  <td>{{ x[5] }}</td>
+                  <td>{{ x[6] }}</td>
+                  <td>{{ x[7] }}</td>
+                  <td>{{ x[8] }}</td>
+                  <td>{{ x[9] }}</td>
+                  <td>{{ x[10] }}</td>
+	</tr>
+	</tbody>
+	{% end %}
+	</table>
+</div>
+{% end %}

@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block body %}
+    
+<div class="container-fluid">
+<div class="row-fluid">
+            <p class=" btn btn-info  btn-block">机房设置</p>
+ <form >
+   <div >
+      <label class=" control-label" >
+	<div style="font-size:25px">  <span class="label label-danger">机房名称设置</span> </div> 
+      </label>
+      <div >
+         <input type="text" class="form-control" id="name">
+      </div>
+   </div>
+
+   <div >
+      <label class=" control-label" >
+	<div style="font-size:25px">  <span class="label label-danger">机房地理位置</span></div> 
+      </label>
+      <div >
+         <input type="text" class="form-control" id="weizhi">
+      </div>
+   </div>
+
+
+   <div >
+      <label class=" control-label" >
+	<div style="font-size:25px">  <span class="label label-danger">机房联系方式</span></div> 
+      </label>
+      <div >
+         <input type="text" class="form-control" id="tel">
+      </div>
+   </div>
+
+
+   <div >
+      <label class=" control-label" >
+	<div style="font-size:25px">  <span class="label label-danger">机房客服人员</span></div> 
+      </label>
+      <div >
+         <input type="text" class="form-control" id="kefu">
+      </div>
+   </div>
+
+
+   <div >
+      <label class=" control-label">
+	<div style="font-size:25px">  <span class="label label-danger">机房机柜编号</span></div> 
+      </label>
+      <div >
+         <input type="text" class="form-control" id="jigui">
+      </div>
+   </div>
+
+
+
+   <div>  <input id="setting_btn1" type="button" class="btn btn-primary pull-right" value="提交"></div>
+    <!--    <div class="alert alert-danger hide " data-dismiss="alert" id="warning-block" role="alert">
+        <div class="Huialert Huialert-error" ><i class="icon-remove"></i>请不要输入空元素</div>
+    -->
+        </div>
+
+ </form>
+    </div>
+</div>
+
+{% end %}
+

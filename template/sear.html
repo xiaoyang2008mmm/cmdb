@@ -1,0 +1,59 @@
+﻿{% extends "base.html" %}
+<link href="/static/css/H-ui.css" rel="stylesheet" type="text/css" />
+{% block body %}
+<p>
+	<a class="warn">查找{{remind}}</a>
+</p>
+<div>
+	<table class="table table-bg table-bordered table-striped  table-hover table-condensed">
+	<thead>
+                <tr>
+                  <th class="span2">ID</th>
+                  <th> {{ all[0] }}</th> 
+                </tr>
+                <tr>
+                  <th>内网Ip</th>
+                  <th> {{ all[1] }}</th> 
+                </tr>
+                <tr>
+                  <th>主机名</th>
+                  <th> {{ all[2] }}</th> 
+                </tr>
+                <tr>
+                  <th>内存</th>
+                  <th> {{ all[3] }}</th> 
+                </tr>
+                <tr>
+                  <th>CPU</th>
+                  <th> {{ all[4] }}</th> 
+                </tr>
+                <tr>
+                  <th>硬盘</th>
+                  <th> {{ all[5] }}</th> 
+                </tr>
+                <tr>
+		  <th>网卡数</th>
+                  <th> {{ all[6] }}</th> 
+                </tr>
+                <tr>
+		  <th>操作系统</th>
+                  <th> {{ all[7] }}</th> 
+                </tr>
+                <tr>
+                  <th>机器型号</th>
+                  <th> {{ all[8] }}</th> 
+                </tr>
+                <tr>
+		  <th>序列号</th>
+                  <th> {{ all[9] }}</th> 
+                </tr>
+                <tr>
+		  <th>时间</th>
+                  <th> {{ all[10] }}</th> 
+                </tr>
+	
+	</thead>
+
+	</table>
+</div>
+{% end %}
