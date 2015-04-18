@@ -116,28 +116,28 @@
    <div class="panel-body">
 
 
-<table class="table table-condensed  table-bordered table-hover">
+<table class="table table-condensed  table-bordered table-hover text-center">
    <thead>
       <tr>
-	 <th><span class="label label-danger">序号</span></th>
-         <th><span class="label label-danger">用户</span></th>
-         <th><span class="label label-danger">邮箱</span></th>
-         <th><span class="label label-danger">手机</span></th>
-         <th><span class="label label-danger">角色</span></th>
-         <th><span class="label label-danger">上次登录时间</span></th>
-	 <th class=""><span class="label label-danger">修改</span></th>
+	 <th><div class="text-center"><span class="label label-danger">序号</span></div></th>
+         <th><div class="text-center"><span class="label label-danger">用户</span></div></th>
+         <th><div class="text-center"><span class="label label-danger">邮箱</span></div></th>
+         <th><div class="text-center"><span class="label label-danger">手机</span></div></th>
+         <th><div class="text-center"><span class="label label-danger">角色</span></div></th>
+         <th><div class="text-center"><span class="label label-danger">上次登录时间</span></div></th>
+	 <th><div class="text-center"><span class="label label-danger">修改</span></div></th>
       </tr>
    </thead>
    <tbody>
-{% for x in users %}
+{% for index,x in enumerate(users) %}
       <tr class="success" >
-         <td>1</td>
+         <td class="col-md-1">{{index + 1}}</td> 
          <td>{{(x["user"]).encode("utf-8")}}</td>
          <td>{{(x["email"]).encode("utf-8")}}</td>
          <td>{{(x["tel"]).encode("utf-8")}}</td>
          <td>{{(x["sele"]).encode("utf-8")}}</td>
          <td>{{x["last_time"]}}</td>
-	  <td class="">
+	  <td class="col-md-1">
               <a href="user.html"><i class="icon-pencil"></i></a>
               <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
           </td> 
