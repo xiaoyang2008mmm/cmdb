@@ -30,7 +30,7 @@ CREATE TABLE `jifang` (
   `kefu` char(255) DEFAULT NULL,
   `jigui` char(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `jifang` (
 
 LOCK TABLES `jifang` WRITE;
 /*!40000 ALTER TABLE `jifang` DISABLE KEYS */;
-INSERT INTO `jifang` VALUES (20,'北京市朝阳区酒仙桥','酒仙桥3区','110','封大大','东区15号'),(21,'的期待我的武器的武器去我的期望','的期待我的武器的武器去我的期望','的期待我的武器的武器去我的期望','的期待我的武器的武器去我的期望','的期待我的武器的武器去我的期望'),(23,'萨达四大四大傻按时','萨达四大四大傻按时','萨达四大四大傻按时','萨达四大四大傻按时','萨达四大四大傻按时'),(24,'阿萨是的撒打算的三大','阿萨是的撒打算的三大','阿萨是的撒打算的三大','阿萨是的撒打算的三大','阿萨是的撒打算的三大'),(25,'测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试','测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试','测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试','测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试','测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试');
+INSERT INTO `jifang` VALUES (20,'北京市朝阳区酒仙桥','酒仙桥3区','110','封大大','东区15号'),(21,'的期待我的武器的武器去我的期望','的期待我的武器的武器去我的期望','的期待我的武器的武器去我的期望','的期待我的武器的武器去我的期望','的期待我的武器的武器去我的期望'),(23,'萨达四大四大傻按时','萨达四大四大傻按时','萨达四大四大傻按时','萨达四大四大傻按时','萨达四大四大傻按时'),(24,'阿萨是的撒打算的三大','阿萨是的撒打算的三大','阿萨是的撒打算的三大','阿萨是的撒打算的三大','阿萨是的撒打算的三大'),(25,'测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试','测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试','测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试','测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试','测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试'),(26,'qwdqwd','qwdwq','wqdqwd','dwqdqw','dwqdqwdqw');
 /*!40000 ALTER TABLE `jifang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,9 +90,10 @@ CREATE TABLE `user` (
   `email` char(255) DEFAULT NULL,
   `tel` char(255) DEFAULT NULL,
   `sele` char(255) DEFAULT NULL,
+  `role` char(255) NOT NULL,
   `last_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=679 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=687 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -101,7 +102,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (675,'ffewf','ewfew','ewfew','fewfew','管理员','2015-04-12 18:04:16'),(676,'ewfewfew','ewfewfew','wefewfew','ewfewfew','管理员','2015-04-12 18:08:27'),(677,'ewfew','111111','威锋网废物','ewfewfew','管理员','2015-04-12 18:24:03'),(678,'fewfe','ewfewfew','wefew','wefewfew','管理员','2015-04-12 18:32:48');
+INSERT INTO `user` VALUES (684,'admin','admin','admin','admin','用户','1','2015-04-18 20:29:53'),(685,'dd','dd','dd','dd','管理员','1','2015-04-18 19:21:54'),(686,'ss','ss','ss','ss','用户','2','2015-04-18 18:59:01');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -114,4 +115,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-04-18  1:33:41
+-- Dump completed on 2015-04-18 20:50:08
