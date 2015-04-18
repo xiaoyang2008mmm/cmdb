@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*- 
 import torndb
+from urllib import urlencode
 import tornado.httpserver
 import tornado.ioloop
 import tornado.web
@@ -8,7 +9,7 @@ import tornado.autoreload
 import tornado.gen 
 import time
 import conn
-import MySQLdb
+import MySQLdb,functools,urlparse
 from tornado.options import define, options, parse_command_line
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -53,7 +54,32 @@ class Application(tornado.web.Application):
             	user=options.mysql_user, password=options.mysql_password,charset='utf8')
 	except:
 	    print  "数据库连接不上"
-                                                                       
+#####################################                                                                       
+#admin管理员权限
+def is_admin(method):
+    @functools.wraps(method)
+    def wrapper(self, *args, **kwargs):
+        if not self.current_user :
+            if self.request.method in ("GET", "HEAD"):
+                url = self.get_login_url()
+                if "?" not in url:
+                    if urlparse.urlsplit(url).scheme:
+                        next_url = self.request.full_url()
+                    else:
+                        next_url = self.request.uri
+                    url += "?" + urlencode(dict(next=next_url))
+                self.redirect(url)
+                return
+            raise tornado.web.HTTPError(403)
+	else:
+	     if self.current_user != "admin":
+	     	self.write("您没有权限,页面即将跳转 ")
+	     	return
+
+        return method(self, *args, **kwargs)
+    return wrapper
+
+#####################################                                                                       
 
 
 class BaseHandler(tornado.web.RequestHandler):
@@ -64,11 +90,11 @@ class BaseHandler(tornado.web.RequestHandler):
         return self.get_secure_cookie("user")
 
 class index(BaseHandler):
-    @tornado.web.authenticated
+    @is_admin
     def get(self):
         self.render("index.html")
 class sear(BaseHandler):
-    @tornado.web.authenticated
+    @is_admin
     def get(self):
         self.render("sear.html")
     def post(self):                                                                                                 
@@ -79,30 +105,30 @@ class sear(BaseHandler):
 		all	
         self.render("sear.html",all=all,remind=remind)
 class weixiu(BaseHandler):
-    @tornado.web.authenticated
+    @is_admin
     def get(self):
         self.render("weixiu.html")
 class mach_info(BaseHandler):
-    @tornado.web.authenticated
+    @is_admin
     def get(self):
         self.render("mach_info.html",results=conn.results())
 class idc_manager(BaseHandler):
-    @tornado.web.authenticated
+    @is_admin
     def get(self):
 	new=self.db.query("SELECT * FROM jifang")
         self.render("idc_manager.html",new=new)
 class user(BaseHandler):
-    @tornado.web.authenticated
+    @is_admin
     def get(self):
 	users=self.db.query("SELECT * FROM user")
 	print users
         self.render("user.html",users = users)
 class setting(BaseHandler):
-    @tornado.web.authenticated
+    @is_admin
     def get(self):
         self.render("setting.html")
 class base(BaseHandler):
-    @tornado.web.authenticated
+    @is_admin
     def get(self):
 	self.render("base.html")
 
