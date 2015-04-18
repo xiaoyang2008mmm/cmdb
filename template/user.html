@@ -123,52 +123,35 @@
          <th><span class="label label-danger">用户</span></th>
          <th><span class="label label-danger">邮箱</span></th>
          <th><span class="label label-danger">手机</span></th>
+         <th><span class="label label-danger">角色</span></th>
          <th><span class="label label-danger">上次登录时间</span></th>
 	 <th class=""><span class="label label-danger">修改</span></th>
       </tr>
    </thead>
    <tbody>
+{% for x in users %}
       <tr class="success" >
          <td>1</td>
-         <td>Tanmay</td>
-         <td>Bangalore</td>
-         <td>Bangalore</td>
-         <td>560001</td>
+         <td>{{(x["user"]).encode("utf-8")}}</td>
+         <td>{{(x["email"]).encode("utf-8")}}</td>
+         <td>{{(x["tel"]).encode("utf-8")}}</td>
+         <td>{{(x["sele"]).encode("utf-8")}}</td>
+         <td>{{x["last_time"]}}</td>
 	  <td class="">
               <a href="user.html"><i class="icon-pencil"></i></a>
               <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
           </td> 
       </tr>
-      <tr class="success">
-         <td>2</td>
-         <td>Sachin</td>
-         <td>Mumbai</td>
-         <td>Mumbai</td>
-         <td>400003</td>
-          <td class="">
-              <a href="user.html"><i class="icon-pencil"></i></a>
-              <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
-          </td>
-      </tr>
-      <tr class="success" >
-         <td>3</td>
-         <td>Uma</td>
-         <td>Pune</td>
-         <td>Pune</td>
-         <td>411027</td>
-          <td class="">
-              <a href="user.html"><i class="icon-pencil"></i></a>
-              <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
-          </td>
-      </tr>
+
+{% end %}
    </tbody>
 </table>
-   </div>
-</div>
 
 
 
-<ul class="pagination   pagination-right pagination-lg " >
+
+
+<ul class="pagination   pagination-right pagination-lg pull-right" >
   <li><a href="#">&laquo;</a></li>
   <li><a href="#">1</a></li>
   <li><a href="#">2</a></li>
@@ -179,6 +162,8 @@
 </ul>
 
 
+   </div>
+</div>
                     
 
     

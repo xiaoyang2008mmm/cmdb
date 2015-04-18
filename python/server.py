@@ -94,7 +94,9 @@ class idc_manager(BaseHandler):
 class user(BaseHandler):
     @tornado.web.authenticated
     def get(self):
-        self.render("user.html")
+	users=self.db.query("SELECT * FROM user")
+	print users
+        self.render("user.html",users = users)
 class setting(BaseHandler):
     @tornado.web.authenticated
     def get(self):
