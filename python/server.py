@@ -55,6 +55,13 @@ class Application(tornado.web.Application):
 	except:
 	    print  "数据库连接不上"
 #####################################                                                                       
+#权限说明：
+# 1管理员
+# 2用户
+# 3运维
+# 4研发
+# 5厂家
+###############################
 #admin管理员权限
 def is_admin(method):
     @functools.wraps(method)
@@ -72,7 +79,8 @@ def is_admin(method):
                 return
             raise tornado.web.HTTPError(403)
 	else:
-	     if self.current_user != "admin":
+	    role_ID=self.db.get("SELECT role FROM user WHERE user = %s", self.current_user) 
+	    if int(role_ID['role']) != 1:
 	     	self.write("您没有权限,页面即将跳转 ")
 	     	return
 
@@ -130,10 +138,13 @@ class setting(BaseHandler):
 class base(BaseHandler):
     @is_admin
     def get(self):
-	self.render("base.html")
+	current_user=self.current_user
+	self.render("base.html",current_user=current_user)
 
 class loginout(BaseHandler):
     def get(self):
+	last_time=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+	self.db.execute("UPDATE user SET last_time = %s WHERE user = %s" , last_time, self.current_user)
 	self.set_secure_cookie("user"," ")
         self.clear_cookie("user")
         self.redirect('/login/', permanent=True)
@@ -142,16 +153,17 @@ class login(BaseHandler):
         self.render("login.html")
     def post(self):
 	name		=self.get_argument("name")
-	passwd		=self.get_argument("passwd")
-	if name=="admin":
-		if passwd=="admin":
-			self.set_secure_cookie("user", name)
-			self.redirect('/base/', permanent=True)
-			
-		else:
-			self.write("密码不对")
+	pd		=self.get_argument("passwd")
+	results = self.db.get("SELECT user , passwd FROM user WHERE user = %s", name)
+	if results:
+    	    if  results['passwd'] == pd :
+    		self.set_secure_cookie("user", name)
+    		self.redirect('/base/', permanent=True)
+    		
+    	    else:
+    		self.write("密码不对")
 	else:
-		self.write("用户名不对 ")
+    	    self.write("没有这个用户")
 
 
 class shezhi(BaseHandler):
@@ -167,13 +179,14 @@ class shezhi(BaseHandler):
 
 class useradd(BaseHandler):
     def post(self):
-        user  =self.get_argument("user")
-        passwd=self.get_argument("passwd")
-        email  = self.get_argument("email")
-        tel = self.get_argument("tel")
-        sele = self.get_argument("sele")
+        user  	=self.get_argument("user")
+        passwd	=self.get_argument("passwd")
+        email  	= self.get_argument("email")
+        tel	= self.get_argument("tel")
+        sele 	= self.get_argument("sele")
+        role	=self.get_argument("role")
 	last_time=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
-	sql = "INSERT INTO user(user,passwd,email, tel, sele,last_time) VALUES ('%s','%s','%s','%s','%s','%s')" %(user,passwd,email,tel,sele,last_time)
+	sql 	= "INSERT INTO user(user,passwd,email, tel, sele,role,last_time) VALUES ('%s','%s','%s','%s','%s','%s','%s')" %(user,passwd,email,tel,sele,role,last_time)
 	print sql
         self.db.execute(sql)
 

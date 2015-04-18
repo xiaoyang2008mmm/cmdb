@@ -37,6 +37,7 @@ $(document).ready(function(){
                         email:  $("#email").val(),
                         tel:  	$("#tel").val(),
 			sele:	$('#sele option:selected').text(),
+			role:   $("#sele option:selected").val(),
                 },
                         function(status){
                                 alert("保存成功");
