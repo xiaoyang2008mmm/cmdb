@@ -18,11 +18,13 @@
       			<h3 class="panel-title">机房</h3>
    		</div>
          <div class="panel panel-success">
-<div class="panel-heading"><span class="label label-warning">机房名称</span> <strong> {{(x["name"]).encode("utf-8")}}</strong></div>
-<div class="panel-heading"><span class="label label-primary">机房位置</span> <strong>{{(x["weizhi"]).encode("utf-8")}}</strong></div>
-<div class="panel-heading"><span class="label label-success">机房联系方式</span><strong>{{(x["tel"]).encode("utf-8")}}</strong></div>
-<div class="panel-heading"><span class="label label-info">机房客服人员</span>  <strong>{{(x["kefu"]).encode("utf-8")}}</strong></div>
-<div class="panel-heading"><span class="label label-danger">机房机柜位置</span><strong>{{(x["jigui"]).encode("utf-8")}}</strong></div>
+<table class="table">
+<div><tr><th><span class="label label-warning ">机房名称</span><th><td><strong> {{(x["name"]).encode("utf-8")}}</strong></td></tr></div>
+<div><tr><th><span class="label label-primary">机房位置</span><th><td><strong>{{(x["weizhi"]).encode("utf-8")}}</strong></td></tr></div>
+<div><tr><th><span class="label label-success">机房联系方式</span><th><td><strong>{{(x["tel"]).encode("utf-8")}}</strong></td></tr></div>
+<div><tr><th><span class="label label-info">机房客服人员</span><th><td><strong>{{(x["kefu"]).encode("utf-8")}}</strong></td></tr></div>
+<div><tr><th><span class="label label-danger">机房机柜位置</span><th><td><strong>{{(x["jigui"]).encode("utf-8")}}</strong></td></tr></div>
+</table>
          </div>
       </div>
      </div>
