@@ -36,7 +36,11 @@
         </form>
 	<a href="/"  class="nav-header text-center" ><i class="icon-home icon-white"></i>首页</a>
         <a href="/user/"        class="nav-header " >用户管理</a>                                                    
-        <a href="/idc_manager/" class="nav-header " >机房管理</a>   
+        <a href="#idc" class="nav-header collapsed " data-toggle="collapse">机房管理<i class="icon-chevron-up"></i></a>          
+        <ul id="idc" class="nav nav-list collapse">                                                                
+            <li ><a href="/idc_manager/">机房管理</a></li>                                                        
+            <li ><a href="/setting/">机房信息</a></li>                                                        
+        </ul>
   
         <a href="#menu" class="nav-header collapsed " data-toggle="collapse">设备管理<i class="icon-chevron-up"></i></a>
         <ul id="menu" class="nav nav-list collapse">
